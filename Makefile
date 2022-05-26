@@ -13,8 +13,8 @@ generate-base-extra:
 		--name=base-extra-server \
 		--with-context \
 		--spec=pkg/full.yml \
-		--server-package=pkg/server/base-extra \
-		--model-package=pkg/server/base/models \
+		--server-package=pkg/server/base_extra \
+		--model-package=pkg/server/base_extra/models \
 		--api-package=operations
 	goimports -e -w .
 	go fmt ./...

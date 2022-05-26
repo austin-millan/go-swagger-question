@@ -10,7 +10,7 @@ import (
 
 	"github.com/go-openapi/runtime"
 
-	"github.com/austin-millan/go-swagger-question/pkg/server/base/models"
+	"github.com/austin-millan/go-swagger-question/pkg/server/base_extra/models"
 )
 
 // GetTestOKCode is the HTTP code returned for type GetTestOK

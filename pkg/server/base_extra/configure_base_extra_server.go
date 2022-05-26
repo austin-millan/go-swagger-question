@@ -15,7 +15,7 @@ import (
 	"github.com/go-openapi/runtime/middleware"
 )
 
-//go:generate swagger generate server --target ../../../../go-swagger-example --name BaseExtraServer --spec ../../full.yml --model-package pkg/server/base/models --server-package pkg/server/base-extra --principal interface{}
+//go:generate swagger generate server --target ../../../../go-swagger-example --name BaseExtraServer --spec ../../full.yml --model-package pkg/server/base_extra/models --server-package pkg/server/base_extra --principal interface{}
 
 func configureFlags(api *operations.BaseExtraServerAPI) {
 	// api.CommandLineOptionsGroups = []swag.CommandLineOptionsGroup{ ... }
@@ -49,6 +49,7 @@ func configureAPI(api *operations.BaseExtraServerAPI) http.Handler {
 			return middleware.NotImplemented("operation index.Index has not yet been implemented")
 		})
 	}
+
 	// HOW TO ENABLE DEFAULT `BASE` PACKAGE HANDLER?
 	api.IndexIndexHandler = index.IndexHandlerFunc(base.NewPingHandler().Handle)
 
