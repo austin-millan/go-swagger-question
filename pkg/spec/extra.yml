@@ -1,0 +1,43 @@
+swagger: '2.0'
+info:
+  description: |
+    Extra implementation
+  title: Base
+  version: 0.1.0
+host: '0.0.0.0:8080'
+basePath: /
+schemes:
+  - http
+  - https
+paths:
+  "/test/":
+    get:
+      consumes:
+        - application/x-www-form-urlencoded
+      deprecated: false
+      description: GetTest
+      operationId: GetTest
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/TestResponse'
+      summary: GetTest
+      tags:
+        - test
+definitions:
+  ResponseMeta:
+    properties:
+      meta:
+        type: string
+    type: object
+  TestResponse:
+    allOf:
+      - $ref: '#/definitions/ResponseMeta'
+    properties:
+      id:
+        type: string
+    type: object
+

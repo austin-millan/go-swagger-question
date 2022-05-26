@@ -1,0 +1,60 @@
+schemes:
+- http
+- https
+swagger: "2.0"
+info:
+  description: |
+    Base implementation
+  title: Base
+  version: 0.1.0
+host: 0.0.0.0:8080
+basePath: /
+paths:
+  /:
+    get:
+      description: Index
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      tags:
+      - index
+      summary: Index
+      operationId: Index
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/PingResponse'
+  /test/:
+    get:
+      description: GetTest
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      tags:
+      - test
+      summary: GetTest
+      operationId: GetTest
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/TestResponse'
+definitions:
+  PingResponse:
+    allOf:
+    - $ref: '#/definitions/ResponseMeta'
+  ResponseMeta:
+    type: object
+    properties:
+      meta:
+        type: string
+  TestResponse:
+    type: object
+    allOf:
+    - $ref: '#/definitions/ResponseMeta'
+    properties:
+      id:
+        type: string
